@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using RimWorld;
-using System;
 using Verse;
 
 namespace PassionOnLevelUp
@@ -51,28 +50,29 @@ namespace PassionOnLevelUp
                 while (___pawn.skills.skills[j].levelInt > __state)
                 {
                     Passion pawnSkillPassion = ___pawn.skills.skills[j].passion;
+                    int randomNumber = Verse.Rand.Range(0, 100);
 
-                    if (___pawn.skills.skills[j].passion == (Passion)4 && (double)5 > new Random(DateTime.Now.Millisecond).NextDouble())
+                    if (pawnSkillPassion == (Passion)4 && (int)5 > randomNumber)
                     {
                         IncreasePassion((Passion)5, __instance, ___pawn, ___def);
                     }
 
-                    if (___pawn.skills.skills[j].passion == Passion.Major && (double)10 > new Random(DateTime.Now.Millisecond).NextDouble())
+                    if (pawnSkillPassion == Passion.Major && (int)10 > randomNumber)
                     {
                         IncreasePassion((Passion)4, __instance, ___pawn, ___def);
                     }
 
-                    if (___pawn.skills.skills[j].passion == Passion.Minor && (double)15 > new Random(DateTime.Now.Millisecond).NextDouble())
+                    if (pawnSkillPassion == Passion.Minor && (int)15 > randomNumber)
                     {
                         IncreasePassion(Passion.Major, __instance, ___pawn, ___def);
                     }
 
-                    if (pawnSkillPassion == Passion.None && (double)20 > new Random(DateTime.Now.Millisecond).NextDouble())
+                    if (pawnSkillPassion == Passion.None && (int)20 > randomNumber)
                     {
                         IncreasePassion(Passion.Minor, __instance, ___pawn, ___def);
                     }
 
-                    if (___pawn.skills.skills[j].passion == (Passion)3 && (double)25 > new Random(DateTime.Now.Millisecond).NextDouble())
+                    if (pawnSkillPassion == (Passion)3 && (int)25 > randomNumber)
                     {
                         IncreasePassion(Passion.None, __instance, ___pawn, ___def);
                     }
